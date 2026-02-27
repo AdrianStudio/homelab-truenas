@@ -1,5 +1,49 @@
 # 01 - Server Hardware
 
+---
+
+# HomeLab TrueNAS Server
+
+![platform](https://img.shields.io/badge/platform-TrueNAS_SCALE-blue?style=for-the-badge)
+![storage](https://img.shields.io/badge/storage-ZFS-green?style=for-the-badge)
+![services](https://img.shields.io/badge/services-NextCloud_|_Zabbix_|_Docker-orange?style=for-the-badge)
+![network](https://img.shields.io/badge/network-Gigabit_Ethernet-red?style=for-the-badge)
+![remote](https://img.shields.io/badge/remote-WireGuard_VPN-purple?style=for-the-badge)
+
+---
+
+## System Configuration
+
+- Server Model: HP ProDesk 600 G2 SFF  
+- CPU: Intel Core i5-6500 (4 cores / 4 threads)  
+- Architecture: x86_64  
+- Memory: 16GB DDR4  
+- Operating System: TrueNAS SCALE  
+- File System: ZFS  
+
+---
+
+## Storage Layout
+
+- OS Drive: Goldenfir SSD — 500GB — SATA  
+- Application Storage: Kingston SSD — 240GB — SATA  
+- Primary Storage: WD Red HDD — 6TB — SATA  
+- Virtualization Storage: Synology NVMe SSD — PCIe Adapter  
+
+---
+
+## Infrastructure Services
+
+- Private Cloud: NextCloud  
+- Monitoring: Zabbix and Grafana  
+- Container System: Docker (TrueNAS Apps)  
+- Virtualization: KVM (built into TrueNAS SCALE)  
+- VPN: WireGuard  
+- Network: Gigabit Ethernet  
+- Deployment: On-premise physical server  
+
+---
+
 ## Project Scope
 
 This project will use a physical server dedicated to providing services, such as:
@@ -151,5 +195,11 @@ The system is designed to support future services such as:
 - SIEM platforms
 - Additional virtual machines
 - Backup replication
+
+---
+
+## Continue Reading
+
+[![NEXT](https://img.shields.io/badge/NEXT-02_TrueNAS_Installation-blue?style=for-the-badge)](02-truenas-installation.md)
 
 ---
