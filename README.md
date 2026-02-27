@@ -1,119 +1,148 @@
 # HomeLab TrueNAS Server
 
-![Platform](https://img.shields.io/badge/platform-TrueNAS_SCALE-blue)
-![Storage](https://img.shields.io/badge/storage-ZFS-green)
-![Virtualization](https://img.shields.io/badge/virtualization-KVM-orange)
-![Containers](https://img.shields.io/badge/containers-Docker-blue)
-![Network](https://img.shields.io/badge/network-Gigabit_Ethernet-red)
-![License](https://img.shields.io/badge/license-Personal_Project-lightgrey)
-
-Enterprise-grade HomeLab infrastructure built using TrueNAS SCALE, designed to provide centralized storage, private cloud services, virtualization, infrastructure monitoring, and secure remote access.
-
-This project documents the complete deployment process, including hardware configuration, operating system installation, storage architecture, network configuration, and service deployment.
+![platform](https://img.shields.io/badge/platform-TrueNAS_SCALE-blue?style=for-the-badge)
+![storage](https://img.shields.io/badge/storage-ZFS-green?style=for-the-badge)
+![services](https://img.shields.io/badge/services-NextCloud_|_Zabbix_|_Docker-orange?style=for-the-badge)
+![network](https://img.shields.io/badge/network-Gigabit_Ethernet-red?style=for-the-badge)
+![remote](https://img.shields.io/badge/remote-WireGuard_VPN-purple?style=for-the-badge)
 
 ---
 
-## Overview
+## Project Overview
 
-This HomeLab server runs on dedicated physical hardware and provides a fully isolated infrastructure environment. The system is designed using a tiered storage architecture, separating operating system, applications, and storage workloads to improve performance, stability, and scalability.
+This project consists of building a complete HomeLab server using TrueNAS SCALE running on dedicated physical hardware.
 
-The server operates 24/7 inside a private network and will support secure remote access using VPN.
+The purpose of this server is to replace cloud services like iCloud, provide centralized storage, run applications, host virtual machines, monitor infrastructure, and allow secure remote access from anywhere.
+
+This server runs 24/7 inside a home network and is accessible locally and remotely through VPN.
 
 ---
 
-## Technologies Used
+## Platform and Technology
 
-Operating System  
-TrueNAS SCALE (Linux-based NAS operating system)
+Operating System: TrueNAS SCALE  
+File System: ZFS  
+Virtualization: KVM (built into TrueNAS SCALE)  
+Container System: Docker (TrueNAS Apps)  
+Monitoring: Zabbix and Grafana  
+Networking: Gigabit Ethernet  
+Remote Access: WireGuard VPN  
+Architecture: x86_64  
+Deployment: On-premise physical server  
 
-Filesystem  
-ZFS (Zettabyte File System)
+---
 
-Virtualization  
-KVM Hypervisor (integrated in TrueNAS SCALE)
+## Main Services Provided
 
-Container Platform  
-Docker / Kubernetes (TrueNAS Apps subsystem)
+This server provides multiple infrastructure services:
 
-Network Services  
-SMB, NFS, SSH, DNS, VPN
-
-Monitoring Stack  
-Zabbix, Grafana
-
-Cloud Platform  
-NextCloud (private cloud storage)
-
-VPN  
-WireGuard
+Private Cloud Storage using NextCloud  
+Centralized NAS storage for files, backups and media  
+Virtual machine storage and lab environments  
+Network-wide DNS filtering using Pi-hole  
+Infrastructure monitoring using Zabbix and Grafana  
+Secure remote access using WireGuard VPN  
+Docker container hosting  
+Future services such as media streaming, reverse proxy hosting and infrastructure testing  
 
 ---
 
 ## Storage Architecture
 
-The system uses dedicated disks for each workload tier.
+The storage is separated into multiple disks, each with a specific purpose.
 
-OS Tier  
-Goldenfir SSD  
-Hosts TrueNAS SCALE operating system and boot environment.
+Operating System SSD  
+Used only for TrueNAS SCALE installation. This ensures system stability and prevents data corruption.
 
-Application Tier  
-Kingston SSD  
-Hosts container storage, application data, monitoring services, and infrastructure tools.
+Main Storage HDD  
+Used for file storage, backups, NextCloud data, media and ISO storage.
 
-Storage Tier  
-WD Red HDD  
-Primary storage pool for NAS data, backups, and cloud storage.
+Application SSD  
+Used for Docker containers, monitoring tools, VPN services and infrastructure applications.
 
-Virtualization Tier  
-Synology NVMe SSD  
-Used for virtual machines, lab environments, and infrastructure testing.
+NVMe SSD (optional)  
+Used for virtual machines and lab environments, providing maximum performance and low latency.
 
-This separation improves performance, prevents resource contention, and simplifies maintenance.
+This separation improves performance, stability and scalability.
 
 ---
 
-## Features
+## Network Configuration
 
-Centralized NAS storage  
-Private cloud storage using NextCloud  
-Virtual machine hosting for lab environments  
-Container-based application deployment  
-Infrastructure monitoring using Zabbix and Grafana  
-Secure remote access using WireGuard VPN  
-Backup storage and ISO repository  
-Expandable architecture for future services
+The server is connected using Gigabit Ethernet to ensure maximum stability and performance.
 
----
+Example access address:
 
-## Installation
+https://192.168.x.x
 
-Step 1  
-Download TrueNAS SCALE ISO from the official website:
+This IP address allows access to the TrueNAS web interface from any device inside the network.
 
-https://www.truenas.com/download-truenas-scale/
-
-Step 2  
-Create bootable USB using Balena Etcher.
-
-Step 3  
-Boot the server from USB and install TrueNAS SCALE on the dedicated OS SSD.
-
-Step 4  
-Access the Web Interface using:
-
-https://SERVER_IP
-
-Step 5  
-Create storage pools and datasets.
-
-Step 6  
-Configure application storage and deploy services.
-
-Full installation documentation is available in:
-
-docs/02-truenas-installation.md
+Remote access is configured later using WireGuard VPN, allowing secure access from outside the network.
 
 ---
 
-## Repository Structure
+## Why TrueNAS SCALE
+
+TrueNAS SCALE was chosen because it provides enterprise-grade storage, virtualization and container support in a single platform.
+
+Main benefits:
+
+ZFS file system with data integrity protection  
+Built-in Docker container support  
+Virtual machine support  
+Web-based management interface  
+High stability for 24/7 operation  
+Designed specifically for NAS and infrastructure workloads  
+
+---
+
+## System Design Principles
+
+This server follows important infrastructure design principles:
+
+Separation between OS, applications and data  
+Dedicated storage for each workload type  
+High reliability for continuous operation  
+Scalable architecture for future expansion  
+Secure remote access through VPN  
+Centralized infrastructure management  
+
+---
+
+## Future Expansion
+
+This server is designed to support future infrastructure and services such as:
+
+Jellyfin media streaming server  
+Immich private photo storage  
+Reverse proxy hosting  
+Cybersecurity lab environments  
+Additional virtual machines  
+Backup replication systems  
+Additional storage expansion  
+
+---
+
+## Author
+
+Developed and maintained by AdrianStudio  
+
+This project is part of a personal infrastructure lab used for learning, storage, monitoring and service hosting.
+
+---
+
+## Documentation
+
+This repository contains full step-by-step documentation of the entire setup process, including hardware configuration, TrueNAS installation, storage configuration, application deployment and remote access setup.
+
+---
+
+## Continue Reading
+
+<p align="center">
+  <a href="docs/01-server-hardware.md">
+    <img src="https://img.shields.io/badge/START-01_Server_Hardware-blue?style=for-the-badge">
+  </a>
+</p>
+
+---
