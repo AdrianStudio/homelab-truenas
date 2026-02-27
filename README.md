@@ -20,15 +20,38 @@ This server runs 24/7 inside a home network and is accessible locally and remote
 
 ## Platform and Technology
 
-Operating System: TrueNAS SCALE  
-File System: ZFS  
-Virtualization: KVM (built into TrueNAS SCALE)  
-Container System: Docker (TrueNAS Apps)  
-Monitoring: Zabbix and Grafana  
-Networking: Gigabit Ethernet  
-Remote Access: WireGuard VPN  
-Architecture: x86_64  
-Deployment: On-premise physical server  
+This infrastructure uses the following technologies:
+
+- Operating System: TrueNAS SCALE  
+- File System: ZFS  
+- Virtualization: KVM (built into TrueNAS SCALE)  
+- Container System: Docker (TrueNAS Apps)  
+- Monitoring: Zabbix and Grafana  
+- DNS Filtering: Pi-hole  
+- Private Cloud: NextCloud  
+- Networking: Gigabit Ethernet  
+- Remote Access: WireGuard VPN  
+- Architecture: x86_64  
+- Deployment: On-premise physical server  
+
+---
+
+## Hardware Requirements
+
+Minimum recommended hardware:
+
+- CPU: Intel Core i5 (6th generation or newer) or AMD Ryzen 5 or newer  
+- RAM: Minimum 8GB (16GB recommended)  
+- OS Drive: Minimum 120GB SSD (240GB–500GB recommended)  
+- Storage Drive: Minimum 2TB HDD (4TB–6TB recommended)  
+- Application Drive: Minimum 120GB SSD (240GB recommended)  
+- Network: Gigabit Ethernet  
+
+Optional but recommended:
+
+- NVMe SSD for virtualization  
+- Additional HDD for RAID redundancy  
+- UPS for power protection  
 
 ---
 
@@ -36,14 +59,16 @@ Deployment: On-premise physical server
 
 This server provides multiple infrastructure services:
 
-Private Cloud Storage using NextCloud  
-Centralized NAS storage for files, backups and media  
-Virtual machine storage and lab environments  
-Network-wide DNS filtering using Pi-hole  
-Infrastructure monitoring using Zabbix and Grafana  
-Secure remote access using WireGuard VPN  
-Docker container hosting  
-Future services such as media streaming, reverse proxy hosting and infrastructure testing  
+- Private Cloud Storage using NextCloud  
+- Centralized NAS storage  
+- File storage using SMB/NFS  
+- Backup storage  
+- Virtual machine storage  
+- Docker container hosting  
+- Infrastructure monitoring using Zabbix and Grafana  
+- Network-wide DNS filtering using Pi-hole  
+- Secure remote access using WireGuard VPN  
+- Future service expansion  
 
 ---
 
@@ -51,48 +76,46 @@ Future services such as media streaming, reverse proxy hosting and infrastructur
 
 The storage is separated into multiple disks, each with a specific purpose.
 
-Operating System SSD  
-Used only for TrueNAS SCALE installation. This ensures system stability and prevents data corruption.
+- OS SSD → TrueNAS SCALE system installation  
+- HDD Storage → Main storage pool (files, backups, NextCloud, media)  
+- Application SSD → Docker containers, monitoring tools, VPN services  
+- NVMe SSD (optional) → Virtual machines and lab environments  
 
-Main Storage HDD  
-Used for file storage, backups, NextCloud data, media and ISO storage.
+This separation improves:
 
-Application SSD  
-Used for Docker containers, monitoring tools, VPN services and infrastructure applications.
-
-NVMe SSD (optional)  
-Used for virtual machines and lab environments, providing maximum performance and low latency.
-
-This separation improves performance, stability and scalability.
+- Performance  
+- Stability  
+- Scalability  
+- Data safety  
 
 ---
 
 ## Network Configuration
 
-The server is connected using Gigabit Ethernet to ensure maximum stability and performance.
+The server is connected using Gigabit Ethernet for maximum stability and performance.
 
 Example access address:
 
 https://192.168.x.x
 
-This IP address allows access to the TrueNAS web interface from any device inside the network.
+This allows access to the TrueNAS web interface from any device inside the network.
 
-Remote access is configured later using WireGuard VPN, allowing secure access from outside the network.
+Remote access is configured using WireGuard VPN.
 
 ---
 
 ## Why TrueNAS SCALE
 
-TrueNAS SCALE was chosen because it provides enterprise-grade storage, virtualization and container support in a single platform.
+TrueNAS SCALE provides a complete infrastructure platform with enterprise-grade features.
 
-Main benefits:
+Benefits:
 
-ZFS file system with data integrity protection  
-Built-in Docker container support  
-Virtual machine support  
-Web-based management interface  
-High stability for 24/7 operation  
-Designed specifically for NAS and infrastructure workloads  
+- ZFS filesystem with data integrity protection  
+- Built-in Docker container support  
+- Virtual machine support  
+- Web-based management interface  
+- Stable 24/7 operation  
+- Designed for NAS and infrastructure workloads  
 
 ---
 
@@ -100,26 +123,26 @@ Designed specifically for NAS and infrastructure workloads
 
 This server follows important infrastructure design principles:
 
-Separation between OS, applications and data  
-Dedicated storage for each workload type  
-High reliability for continuous operation  
-Scalable architecture for future expansion  
-Secure remote access through VPN  
-Centralized infrastructure management  
+- Separation of OS and data  
+- Dedicated storage for applications  
+- Dedicated storage for virtualization  
+- Stable 24/7 operation  
+- Scalable architecture  
+- Secure remote access  
 
 ---
 
 ## Future Expansion
 
-This server is designed to support future infrastructure and services such as:
+This system is designed for future expansion, including:
 
-Jellyfin media streaming server  
-Immich private photo storage  
-Reverse proxy hosting  
-Cybersecurity lab environments  
-Additional virtual machines  
-Backup replication systems  
-Additional storage expansion  
+- Jellyfin media server  
+- Immich private photo storage  
+- Reverse proxy hosting  
+- Cybersecurity lab environments  
+- Additional virtual machines  
+- RAID storage configuration  
+- Backup replication  
 
 ---
 
@@ -127,13 +150,7 @@ Additional storage expansion
 
 Developed and maintained by AdrianStudio  
 
-This project is part of a personal infrastructure lab used for learning, storage, monitoring and service hosting.
-
----
-
-## Documentation
-
-This repository contains full step-by-step documentation of the entire setup process, including hardware configuration, TrueNAS installation, storage configuration, application deployment and remote access setup.
+This project is part of a personal HomeLab used for storage, monitoring, virtualization, and infrastructure testing.
 
 ---
 
