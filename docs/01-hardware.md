@@ -59,6 +59,8 @@ For this project I will use:
 
 You can adapt this to your needs, I chose these components as they were spare parts I had from other projects, but if you're planning to build a decent sized NAS and other services, I recommend you have at least 3–5 TB in total (for the dedicated OS SSD, storage, backups, etc / distributed in 2/4 disks).
 
+---
+
 ### 2. Operating System Drive
 
 - Model: Goldenfir SSD
@@ -167,3 +169,4 @@ The system is designed to support future services such as:
 [![NEXT](https://img.shields.io/badge/NEXT-02_TrueNAS_Installation-blue?style=for-the-badge)](02-truenas-installation.md)
 
 ---
+
