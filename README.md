@@ -157,9 +157,10 @@ This project is part of a personal HomeLab used for storage, monitoring, virtual
 ## Continue Reading
 
 <p align="center">
-  <a href="docs/01-server-hardware.md">
+  <a href="docs/01-hardware.md">
     <img src="https://img.shields.io/badge/START-01_Server_Hardware-blue?style=for-the-badge">
   </a>
 </p>
 
 ---
+
